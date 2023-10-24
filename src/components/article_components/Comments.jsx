@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import formatDate from "../../utils/formatDate.js";
 import Loader from "../Loader.jsx";
+import Votes from "../Votes.jsx";
 
 
 function Comments(){
@@ -17,10 +18,11 @@ function Comments(){
         const commentValues = comments.map((comment, index)=>{
             return <li className={'comment-card'} key={index + comment.body}>
                 <p>{comment.body}</p>
-                <span>By: {comment.author}</span>  <span>Votes: {comment.votes}</span> <span>Created: {formatDate(comment.created_at)}</span>
+                <span>By: {comment.author}</span>  <span>votes: {comment.votes}</span> <span>Created: {formatDate(comment.created_at)}</span>
             </li>
         })
         setComments(commentValues)
+        setLoading(false)
     }
 
     useEffect(() => {
