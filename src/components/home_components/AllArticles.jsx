@@ -11,11 +11,11 @@ function AllArticles(){
         const res = await fetch("https://be-northcoder-news.onrender.com/api/articles")
         const {articles} = await res.json()
         const articlesCards = articles.map((article, index)=>{
-            return  <Link to={`article/${article.article_id}`}><li data-id={article.article_id} className={'article-card'} key={article.title + index}>
+            return  <li data-id={article.article_id} className={'article-card'} key={article.title + index}><Link to={`article/${article.article_id}`}>
                 <img src={article.article_img_url} alt='image relating to headline'/>
                 <h2>{article.title}</h2>
                 <p>Votes: {article.votes}</p>
-            </li></Link>
+            </Link></li>
         })
 
 
