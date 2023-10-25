@@ -4,8 +4,14 @@ const newsAPI = axios.create({
     baseURL: 'https://be-northcoder-news.onrender.com/api'
 })
 
-export async function getArticles(){
-    const res = await newsAPI.get("/articles")
+export async function getArticles(topic){
+    let queryStr;
+    if(!topic){
+        queryStr = ""
+    }else{
+        queryStr = `?topic=${topic}`
+    }
+    const res = await newsAPI.get(`/articles${queryStr}`)
     const {articles} = res.data
     const articlesCards = articles.map((article, index)=>{
         let classToAdd;

@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 
 import Loader from "../Loader.jsx";
 import {getArticles} from "../../api.jsx";
@@ -7,6 +7,8 @@ import {getArticles} from "../../api.jsx";
 function AllArticles(){
     const [articles, setArticles] = useState([])
     const [isLoading, setLoading] = useState(true)
+    let location = useLocation()
+    let query = new URLSearchParams(location.search).get('topic')
 
 
 
@@ -14,12 +16,12 @@ function AllArticles(){
 
 
     useEffect(() => {
-        getArticles().then(articlesCards=>{
+        getArticles(query).then(articlesCards=>{
         setArticles(articlesCards)
         setLoading(false)
         })
 
-    }, []);
+    }, [query]);
 
     if(isLoading){
         return <Loader/>
