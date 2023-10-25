@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {handleVotesChange} from "../api.js";
+import {handleVotesChange} from "../api.jsx";
 
 function Votes({ votes, articleId }) {
     const [currentVote, setCurrentVote] = useState(votes);

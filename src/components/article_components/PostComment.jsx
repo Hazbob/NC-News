@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-import {postComment} from "../../api.js";
+import {postComment} from "../../api.jsx";
 import formatDate from "../../utils/formatDate.js";
 import Loader from "../Loader.jsx";
 

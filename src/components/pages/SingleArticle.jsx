@@ -6,7 +6,7 @@ import Loader from "../Loader.jsx";
 import Comments from "../article_components/Comments.jsx";
 import Votes from "../Votes.jsx";
 import PostComment from "../article_components/PostComment.jsx";
-import {getSingleArticle} from "../../api.js";
+import {getSingleArticle} from "../../api.jsx";
 
 function SingleArticle(){
     const [comments, setComments] = useState({})

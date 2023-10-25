@@ -1,10 +1,22 @@
 import axios from "axios";
+import {Link} from "react-router-dom";
 const newsAPI = axios.create({
     baseURL: 'https://be-northcoder-news.onrender.com/api'
 })
 
-export function getArticles(){
-    return newsAPI.get("/articles")
+export async function getArticles(){
+    const res = await newsAPI.get("/articles")
+    const {articles} = res.data
+    const articlesCards = articles.map((article, index)=>{
+        let classToAdd;
+        classToAdd = index ===0 ? 'link-route-first' : 'link-route'
+        return  <li data-id={article.article_id} className={'article-card'} key={article.title + index}><Link className={classToAdd} to={`article/${article.article_id}`}>
+            <img src={article.article_img_url} alt='image relating to headline'/>
+            <h2>{article.title}</h2>
+            <p>Votes: {article.votes}</p>
+        </Link></li>
+    })
+    return articlesCards
 }
 
 export async function getSingleArticle(articleId){
@@ -24,14 +36,6 @@ export async function handleVotesChange (currentVote, setCurrentVote, setDisable
             inc_votes: incOrDec
         };
         const res = await newsAPI.patch(`/articles/${articleId}`, articleCopy)
-
-        // const res2 = await fetch(`https://be-northcoder-news.onrender.com/api/articles/${articleId}`, {
-        //     method: "PATCH",
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(articleCopy)
-        // });
 
         setDisabled(true);
 

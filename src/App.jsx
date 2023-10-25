@@ -9,6 +9,7 @@ function App() {
         <Routes>
             <Route path = "" element={<Home/>}/>
             <Route path = "article/:id" element={<SingleArticle/>}/>
+            {/*<Route path = 'article/:topic' element*/}
         </Routes>
     </div>
 }
