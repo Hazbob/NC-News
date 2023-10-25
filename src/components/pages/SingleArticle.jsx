@@ -30,7 +30,7 @@ function SingleArticle(){
     return <div className={'page'}>
         <Header/>
         <Nav/>
-        <Votes votes={votes}/>
+        <Votes votes={votes} articleId={id} article={article}/>
         <main>
             <h1>{article.title}</h1>
             <img src={article.article_img_url} alt={`image relating to ${article.topic}`}/>
