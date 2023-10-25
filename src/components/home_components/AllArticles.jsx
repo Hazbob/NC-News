@@ -2,15 +2,15 @@ import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
 import Loader from "../Loader.jsx";
-import Votes from "../Votes.jsx";
+import {getArticles} from "../../api.js";
 
 function AllArticles(){
     const [articles, setArticles] = useState([])
     const [isLoading, setLoading] = useState(true)
 
     async function getAllArticles(){
-        const res = await fetch("https://be-northcoder-news.onrender.com/api/articles")
-        const {articles} = await res.json()
+        const res = await getArticles()
+        const {articles} = res.data
         const articlesCards = articles.map((article, index)=>{
             let classToAdd;
             classToAdd = index ===0 ? 'link-route-first' : 'link-route'
@@ -28,6 +28,7 @@ function AllArticles(){
 
     useEffect(() => {
         getAllArticles(setArticles)
+
     }, []);
 
     if(isLoading){

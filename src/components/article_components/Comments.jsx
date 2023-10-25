@@ -5,8 +5,7 @@ import Loader from "../Loader.jsx";
 import Votes from "../Votes.jsx";
 
 
-function Comments(){
-    const [comments, setComments] = useState({})
+function Comments({comments, setComments}){
     const [isLoading, setLoading] = useState(true)
 
     const {id} = useParams()

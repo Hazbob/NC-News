@@ -5,23 +5,25 @@ import {useEffect, useState} from "react";
 import Loader from "../Loader.jsx";
 import Comments from "../article_components/Comments.jsx";
 import Votes from "../Votes.jsx";
-
+import PostComment from "../article_components/PostComment.jsx";
+import {getSingleArticle} from "../../api.js";
 
 function SingleArticle(){
+    const [comments, setComments] = useState({})
     const [article, setArticle] = useState({})
     const [isLoading, setLoading] = useState(true)
     const [votes, setVotes] = useState(0)
     let {id} = useParams()
-    async function getSingleArticle(articleId){
-        const res = await fetch(`https://be-northcoder-news.onrender.com/api/articles/${articleId}`)
-        const {article} = await res.json()
-        setArticle(article[0])
-        setVotes(article[0].votes)
-        setLoading(false)
-    }
+
 
     useEffect(() => {
-        getSingleArticle(id)
+        getSingleArticle(id).then(article=>{
+        setArticle(article)
+        setVotes(article.votes)
+        setLoading(false)
+
+        })
+
     }, []);
 
     if(isLoading){
@@ -36,7 +38,8 @@ function SingleArticle(){
             <img src={article.article_img_url} alt={`image relating to ${article.topic}`}/>
             <p>{article.body}</p>
         </main>
-        <Comments/>
+        <PostComment setComments={setComments} articleId={id} comments={comments}/>
+        <Comments comments={comments} setComments={setComments}/>
 
     </div>
 }
