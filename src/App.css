@@ -29,6 +29,10 @@ ol{
 
 }
 
+.comments-holder{
+    margin-left: 0;
+}
+
 .article-list li:first-child{
     width: 100%;
     height: 30rem;
@@ -75,6 +79,25 @@ ol{
 .link-route-first{
     display: flex;
 }
+.comment-alert{
+    display: flex;
+    justify-content: center;
+    font-size: 5rem;
+    align-items: center;
+}
+.post-form{
+    width: 100%;
+    display: grid;
+    gap: 0;
+    grid-template-columns: 90% 10%;
+    height: 5rem;
+
+}
+
+#commentBody{
+    width: 100%;
+    height: 5rem;
+}
 
 
 
@@ -82,6 +105,12 @@ ol{
 @media screen and (max-width: 800px) {
     .article-list{
         flex-direction: row;
+    }
+    .comment-card{
+        width: 100%;
+    }
+    img{
+        width: 100%;
     }
 
     .article-card{
