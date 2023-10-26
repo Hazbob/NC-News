@@ -6,6 +6,9 @@ const newsAPI = axios.create({
 
 export async function getArticles(topic, sort) {
   sort = sort.toUpperCase();
+  if (sort === "COMMENTS") {
+    sort = "COMMENT_COUNT";
+  }
   let topicStr;
   let sortStr = sort ? `?sort_by=${sort}` : "";
   if (!topic) {
