@@ -9,7 +9,10 @@ function SortingBar({ setSort }) {
         <button>Votes</button>
       </li>
       <li>
-        <button>Post Date</button>
+        <button>Date</button>
+      </li>
+      <li>
+        <button>Comments</button>
       </li>
     </ul>
   );

@@ -5,19 +5,17 @@ import { getArticles } from "../../api.jsx";
 import Loader from "../Loader.jsx";
 import SortingBar from "./SortingBar.jsx";
 
-function AllArticles() {
+function AllArticles({ topic }) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [sort, setSort] = useState("");
-  let location = useLocation();
-  let query = new URLSearchParams(location.search).get("topic");
 
   useEffect(() => {
-    getArticles(query, sort).then((articlesCards) => {
+    getArticles(topic, sort).then((articlesCards) => {
       setArticles(articlesCards);
       setLoading(false);
     });
-  }, [query, sort]);
+  }, [sort, topic]);
 
   if (isLoading) {
     return <Loader />;

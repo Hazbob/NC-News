@@ -9,6 +9,7 @@ export async function getArticles(topic, sort) {
   if (sort === "COMMENTS") {
     sort = "COMMENT_COUNT";
   }
+  console.log(sort);
   let topicStr;
   let sortStr = sort ? `?sort_by=${sort}` : "";
   if (!topic) {
@@ -30,7 +31,10 @@ export async function getArticles(topic, sort) {
         <Link className={classToAdd} to={`article/${article.article_id}`}>
           <img src={article.article_img_url} alt="image relating to headline" />
           <h2>{article.title}</h2>
-          <p>Votes: {article.votes}</p>
+          <p>
+            Votes: {article.votes} <br />
+            Comments : {article.comment_count}
+          </p>
         </Link>
       </li>
     );
