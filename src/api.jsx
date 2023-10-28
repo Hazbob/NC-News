@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
+
 const newsAPI = axios.create({
   baseURL: "https://be-northcoder-news.onrender.com/api",
 });
@@ -9,7 +10,6 @@ export async function getArticles(topic, sort) {
   if (sort === "COMMENTS") {
     sort = "COMMENT_COUNT";
   }
-  console.log(sort);
   let topicStr;
   let sortStr = sort ? `?sort_by=${sort}` : "";
   if (!topic) {
@@ -17,7 +17,12 @@ export async function getArticles(topic, sort) {
   } else {
     topicStr = `?topic=${topic}`;
   }
-  const res = await newsAPI.get(`/articles${topicStr}${sortStr}`);
+  const res = await newsAPI
+    .get(`/articles${topicStr}${sortStr}`)
+    .catch((error) => {
+      console.log(error);
+    });
+  console.log(res);
   const { articles } = res.data;
   const articlesCards = articles.map((article, index) => {
     let classToAdd;
@@ -47,7 +52,6 @@ export async function getSingleArticle(articleId) {
   const { article } = res.data;
   return article[0];
 }
-
 export async function handleVotesChange(
   currentVote,
   setCurrentVote,
@@ -79,4 +83,15 @@ export async function postComment(articleId, commentBody) {
     commentBody,
   );
   return res;
+}
+
+export async function deleteComment(commentID) {
+  try {
+    const res = await axios.get(
+      `https://be-northcoder-news.onrender.com/api/comments/364`,
+    );
+    console.log(res);
+  } catch (err) {
+    console.log(err);
+  }
 }
