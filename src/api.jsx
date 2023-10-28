@@ -84,14 +84,3 @@ export async function postComment(articleId, commentBody) {
   );
   return res;
 }
-
-export async function deleteComment(commentID) {
-  try {
-    const res = await axios.get(
-      `https://be-northcoder-news.onrender.com/api/comments/364`,
-    );
-    console.log(res);
-  } catch (err) {
-    console.log(err);
-  }
-}

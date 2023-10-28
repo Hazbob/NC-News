@@ -24,7 +24,6 @@ function SingleArticle() {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
         setError(true);
       });
   }, []);

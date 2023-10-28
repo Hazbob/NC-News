@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import formatDate from "../../utils/formatDate.js";
 import Loader from "../Loader.jsx";
-import { deleteComment } from "../../api.jsx";
 
 function Comments({ comments, setComments }) {
   const [isLoading, setLoading] = useState(true);
@@ -25,15 +24,6 @@ function Comments({ comments, setComments }) {
           <p>{comment.body}</p>
           <span>By: {comment.author}</span> <span>votes: {comment.votes}</span>{" "}
           <span>Created: {formatDate(comment.created_at)}</span>
-          <button
-            onClick={() => {
-              console.log("hello");
-              deleteComment();
-            }}
-          >
-            delete
-          </button>
-          <h2>{comment.comment_id}</h2>
         </li>
       );
     });
