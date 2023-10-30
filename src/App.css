@@ -139,7 +139,17 @@ ol{
     color: black;
     word-break: normal;
 }
+.vote-button{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
 
+
+.votes-container{
+    display: flex;
+    align-items: center;
+}
 .sort-box{
     margin-bottom: 2rem;
 }
