@@ -12,9 +12,12 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="" element={<Home topic={topic} />} />
+        <Route path="" element={<Home topic={topic} setTopic={setTopic} />} />
         <Route path="article/:id" element={<SingleArticle />} />
-        <Route path="topics" element={<Topic setTopic={setTopic} />} />
+        <Route
+          path="topics"
+          element={<Topic setTopic={setTopic} topic={topic} />}
+        />
         <Route path="*" element={<PathNotFound />} />
       </Routes>
     </div>

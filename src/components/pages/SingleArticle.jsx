@@ -38,13 +38,14 @@ function SingleArticle() {
       <Header />
       <Nav />
       <Votes votes={votes} articleId={id} article={article} />
-      <main>
-        <h1>{article.title}</h1>
+      <main className={"single-article-main"}>
+        <h1 className={"article-title"}>{article.title}</h1>
         <img
+          className={"single-article-image"}
           src={article.article_img_url}
           alt={`image relating to ${article.topic}`}
         />
-        <p>{article.body}</p>
+        <p className={"article-body"}>{article.body}</p>
       </main>
       <PostComment
         setComments={setComments}

@@ -17,12 +17,14 @@ export async function getArticles(topic, sort) {
   } else {
     topicStr = `?topic=${topic}`;
   }
-  const res = await newsAPI
-    .get(`/articles${topicStr}${sortStr}`)
-    .catch((error) => {
-      console.log(error);
-    });
-  console.log(res);
+  let queryString = `/articles${topicStr}${sortStr}`;
+  if (topic && sort) {
+    queryString = `/articles${topicStr}&sort_by=${sort}`;
+  }
+  console.log(queryString);
+  const res = await newsAPI.get(queryString).catch((error) => {
+    console.log(error);
+  });
   const { articles } = res.data;
   const articlesCards = articles.map((article, index) => {
     let classToAdd;

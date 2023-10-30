@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 import { getArticles } from "../../api.jsx";
 import Loader from "../Loader.jsx";
 import SortingBar from "./SortingBar.jsx";
+import TopicDrop from "../topic_components/TopicDrop.jsx";
 
-function AllArticles({ topic }) {
+function AllArticles({ topic, setTopic }) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [sort, setSort] = useState("");
@@ -23,7 +23,8 @@ function AllArticles({ topic }) {
 
   return (
     <div>
-      <SortingBar setSort={setSort} />
+      <SortingBar setSort={setSort} sort={sort} />
+      <TopicDrop setTopic={setTopic} topic={topic} />
       <ul className={"article-list"}>{articles}</ul>
     </div>
   );
