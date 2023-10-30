@@ -1,6 +1,6 @@
 import Header from "../Header.jsx";
 import Nav from "../Nav.jsx";
-import TopicCards from "../topic_components/TopicCards.jsx";
+import TopicCards from "../topic_components/TopicDrop.jsx";
 
 function Topic({ setTopic }) {
   return (

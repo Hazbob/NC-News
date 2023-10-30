@@ -2,12 +2,12 @@ import Header from "../Header.jsx";
 import Nav from "../Nav.jsx";
 import AllArticles from "../home_components/AllArticles.jsx";
 
-function Home({ topic }) {
+function Home({ topic, setTopic }) {
   return (
     <div className={"page"}>
       <Header />
       <Nav />
-      <AllArticles topic={topic} />
+      <AllArticles setTopic={setTopic} topic={topic} />
     </div>
   );
 }

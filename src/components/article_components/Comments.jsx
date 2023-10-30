@@ -21,7 +21,7 @@ function Comments({ comments, setComments }) {
           className={"comment-card"}
           key={index + comment.body}
         >
-          <p>{comment.body}</p>
+          <p className={"comment-body"}>{comment.body}</p>
           <span>By: {comment.author}</span> <span>votes: {comment.votes}</span>{" "}
           <span>Created: {formatDate(comment.created_at)}</span>
         </li>
