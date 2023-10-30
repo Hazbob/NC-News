@@ -7,7 +7,7 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 
 function SortingBar({ setSort, sort }) {
-  const [sortUi, setSortUi] = React.useState("Sort");
+  const [sortUi, setSortUi] = React.useState("");
 
   function sendSort(e) {
     setSort(e.target.value.toUpperCase());
@@ -22,7 +22,7 @@ function SortingBar({ setSort, sort }) {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={sortUi}
-          label="Sort"
+          label="SortUi"
           onChange={sendSort}
         >
           <MenuItem value={"votes"}>Votes</MenuItem>

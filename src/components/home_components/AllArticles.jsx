@@ -23,8 +23,10 @@ function AllArticles({ topic, setTopic }) {
 
   return (
     <div>
-      <SortingBar setSort={setSort} sort={sort} />
-      <TopicDrop setTopic={setTopic} topic={topic} />
+      <nav style={{ display: "flex", gap: "1rem" }}>
+        <SortingBar setSort={setSort} sort={sort} />
+        <TopicDrop setTopic={setTopic} topic={topic} />
+      </nav>
       <ul className={"article-list"}>{articles}</ul>
     </div>
   );
