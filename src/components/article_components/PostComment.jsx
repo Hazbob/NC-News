@@ -25,7 +25,7 @@ function PostComment({ setComments, articleId, comments }) {
       const formatData = (
         <li className={"comment-card"} key={res.data.body}>
           <p>{res.data.body}</p>
-          <span>By: {res.data.author}</span>{" "}
+          <span className={"author-name"}>By: {res.data.author}</span>{" "}
           <span>votes: {res.data.votes}</span>{" "}
           <span>Created: {formatDate(res.data.created_at)}</span>
         </li>

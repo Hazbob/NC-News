@@ -22,7 +22,7 @@ function Comments({ comments, setComments }) {
           key={index + comment.body}
         >
           <p className={"comment-body"}>{comment.body}</p>
-          <span style={{ color: "red" }}>By: {comment.author}</span>{" "}
+          <span className={"author-name"}>By: {comment.author}</span>{" "}
           <span>votes: {comment.votes}</span>{" "}
           <span>Created: {formatDate(comment.created_at)}</span>
         </li>
