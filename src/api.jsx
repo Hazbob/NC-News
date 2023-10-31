@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
+const apiKey = import.meta.env.VITE_API_KEY;
 
 const newsAPI = axios.create({
   baseURL: "https://be-northcoder-news.onrender.com/api",
@@ -87,4 +88,11 @@ export async function postComment(articleId, commentBody) {
     commentBody,
   );
   return res;
+}
+
+export async function getWeather(lat, long) {
+  const data = await axios.get(
+    `http://api.weatherapi.com/v1/current.json?q=${lat},${long}&key=${apiKey}`,
+  );
+  return data;
 }
