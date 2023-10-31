@@ -30,7 +30,7 @@ function Weather() {
     <div
       style={{
         display: "flex",
-        width: "10%",
+        width: "fit-content",
         alignItems: "center",
         backgroundColor: "#EFEFEF",
         height: "fit-content",
