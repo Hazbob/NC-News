@@ -148,12 +148,13 @@ ol{
 
     background: none;
     cursor: pointer;
-    font-size: 64px;
-    width: 64px;
+    font-size: 40px;
+    width: 40px;
     color: white;
     border-radius: 100%;
     border: none;
     background-color: red;
+    margin: 1rem;
 
 
 }
