@@ -22,7 +22,8 @@ function Comments({ comments, setComments }) {
           key={index + comment.body}
         >
           <p className={"comment-body"}>{comment.body}</p>
-          <span>By: {comment.author}</span> <span>votes: {comment.votes}</span>{" "}
+          <span style={{ color: "red" }}>By: {comment.author}</span>{" "}
+          <span>votes: {comment.votes}</span>{" "}
           <span>Created: {formatDate(comment.created_at)}</span>
         </li>
       );
@@ -40,7 +41,7 @@ function Comments({ comments, setComments }) {
   }
   return (
     <section>
-      <h3>Comments</h3>
+      <h3 className={"comments-title"}>Comments</h3>
       <ol className={"comments-holder"}>{comments}</ol>
     </section>
   );

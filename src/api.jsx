@@ -21,7 +21,7 @@ export async function getArticles(topic, sort) {
   if (topic && sort) {
     queryString = `/articles${topicStr}&sort_by=${sort}`;
   }
-  console.log(queryString);
+
   const res = await newsAPI.get(queryString).catch((error) => {
     console.log(error);
   });
@@ -38,10 +38,12 @@ export async function getArticles(topic, sort) {
         <Link className={classToAdd} to={`article/${article.article_id}`}>
           <img src={article.article_img_url} alt="image relating to headline" />
           <h2>{article.title}</h2>
-          <p>
-            Votes: {article.votes} <br />
-            Comments : {article.comment_count}
-          </p>
+          <div className={"vote-comments"}>
+            <p>
+              Votes: {article.votes} <br />
+              Comments : {article.comment_count}
+            </p>
+          </div>
         </Link>
       </li>
     );

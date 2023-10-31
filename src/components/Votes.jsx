@@ -24,22 +24,22 @@ function Votes({ votes, articleId }) {
   return (
     <span className={"votes-container"}>
       <button
+        style={{ background: btnColour }}
         className={"vote-button"}
         onClick={changeVotes}
         disabled={disabled}
       >
-        <BsFillArrowDownCircleFill
-          style={{ color: `${btnColour}` }}
-          size={50}
-        />
+        +
       </button>
       <h1>Votes: {currentVote}</h1>
       <button
+        style={{ background: btnColour }}
+        data-inc={"+"}
         className={"vote-button"}
         onClick={changeVotes}
         disabled={disabled}
       >
-        <BsFillArrowUpCircleFill size={50} style={{ color: `${btnColour}` }} />
+        -
       </button>
     </span>
   );
