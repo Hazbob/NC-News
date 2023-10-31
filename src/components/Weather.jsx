@@ -28,6 +28,7 @@ function Weather() {
 
   return (
     <div
+      className={"weather-container"}
       style={{
         display: "flex",
         width: "fit-content",
