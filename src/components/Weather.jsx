@@ -20,7 +20,6 @@ function Weather() {
 
   useEffect(() => {
     getWeather(lat, long).then((data) => {
-      console.log(data.data.current.condition.icon);
       setTemp(data.data.current.temp_c);
       setWeatherIcon(data.data.current.condition.icon);
     });

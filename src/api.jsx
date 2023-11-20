@@ -92,7 +92,7 @@ export async function postComment(articleId, commentBody) {
 
 export async function getWeather(lat, long) {
   const data = await axios.get(
-    `http://api.weatherapi.com/v1/current.json?q=${lat},${long}&key=${apiKey}`,
+    `https://api.weatherapi.com/v1/current.json?q=${lat},${long}&key=${apiKey}`,
   );
   return data;
 }
